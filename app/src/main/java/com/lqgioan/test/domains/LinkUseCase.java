@@ -18,7 +18,8 @@ import io.reactivex.rxjava3.core.Single;
 
 public class LinkUseCase implements ILinkUseCase {
 //    private final Pattern mLinkPattern = Patterns.WEB_URL;
-    private final Pattern mLinkPattern = Pattern.compile("(?i)\\b((?:https?://|www\\d{0,3}[.]|[a-z0-9.\\-]+[.][a-z]{2,4}/)(?:[^\\s()<>]+|\\(([^\\s()<>]+|(\\([^\\s()<>]+\\)))*\\))+(?:\\(([^\\s()<>]+|(\\([^\\s()<>]+\\)))*\\)|[^\\s`!()\\[\\]{};:'\".,<>?«»“”‘’]))");
+    // https://daringfireball.net/2010/07/improved_regex_for_matching_urls
+    private final Pattern mLinkPattern = Pattern.compile("\\b((?:https?:\\/\\/|www\\d{0,3}[.]|[a-z0-9.\\-]+[.][a-z]{2,4}\\/)(?:[^\\s()<>]+|\\(([^\\s()<>]+|(\\([^\\s()<>]+\\)))*\\))+(?:\\(([^\\s()<>]+|(\\([^\\s()<>]+\\)))*\\)|[^\\s`!()\\[\\]{};:'\".,<>?«»“”‘’]))");
 
     private final ILinkRepository mLinkRepository;
 
